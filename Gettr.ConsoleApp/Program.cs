@@ -7,9 +7,9 @@ var config = new ConfigurationBuilder()
 
 var credentials = config.GetSection("GettrCredentials");
 
-var api = new ApiClient(credentials["user"], credentials["token"]);
+var api = new ApiClient(credentials["user"], credentials["token"], 30000);
 
-//var r1 = await api.TimelineAsync();
+var r1 = await api.TimelineAsync();
 
 //var r2 = await api.UserInfoAsync("alphons");
 
@@ -21,6 +21,10 @@ var api = new ApiClient(credentials["user"], credentials["token"]);
 
 //var r4 = await api.PostsAsync();
 
-var r5 = await api.ProfileAsync();
+//var r5 = await api.ProfileAsync();
 
+//var r6 = await api.PublicGlobalsAsync();
 
+//var r7 = await api.MutesAsync("alphons"); // "nm" = no-mutes
+
+//var r8 = await api.BlocksAsync("alphons"); // "nb" = no-blocks
