@@ -8,7 +8,7 @@ namespace Gettr.Api.Data
 		{
 
 		}
-		// Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
+
 		public class Activity
 		{
 			public object cdate { get; set; }

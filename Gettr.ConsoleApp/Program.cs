@@ -19,6 +19,8 @@ var api = new ApiClient(credentials["user"], credentials["token"]);
 
 //var r3c = await api.QueryFirebaseHistoryAsync(action: "mc", ifRefresh: true);
 
-var r4 = await api.PostsAsync();
+//var r4 = await api.PostsAsync();
+
+var r5 = await api.ProfileAsync();
 
 

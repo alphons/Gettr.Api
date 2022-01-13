@@ -46,7 +46,7 @@ namespace Gettr.Api
 			http.DefaultRequestHeaders.Add(XAppAuth.HeaderName, JsonSerializer.Serialize(xappauth));
 		}
 
-		private async Task<ResultWrapper<T>> GetWrappedAsync<T>(string url)
+		private async Task<XResp<T>> GetWrappedAsync<T>(string url)
 		{
 			try
 			{
@@ -54,13 +54,13 @@ namespace Gettr.Api
 
 				response.EnsureSuccessStatusCode();
 
-				var result = await response.Content.ReadFromJsonAsync<ResultWrapper<T>>();
+				var result = await response.Content.ReadFromJsonAsync<XResp<T>>();
 
 				return result;
 			}
 			catch (Exception eee)
 			{
-				return new ResultWrapper<T> { rc = $"ERROR: {eee.Message}" };
+				return new XResp<T> { rc = $"ERROR: {eee.Message}" };
 			}
 		}
 

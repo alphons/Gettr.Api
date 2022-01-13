@@ -5,7 +5,7 @@ namespace Gettr.Api
 {
 	public partial class ApiClient
 	{
-		public async Task<ResultWrapper<TimeLine.Result>> TimelineAsync(int offset = 0, int max = 20, string dir = "fwd", string incl = "posts|stats|userinfo|shared|liked", DateTimeOffset? StartTs = null, string merge = "shares")
+		public async Task<XResp<TimeLine.Result>> TimelineAsync(int offset = 0, int max = 20, string dir = "fwd", string incl = "posts|stats|userinfo|shared|liked", DateTimeOffset? StartTs = null, string merge = "shares")
 		{
 			var startTs = StartTs == null ? DateTimeOffset.Now.ToUnixTimeMilliseconds() : StartTs.Value.ToUnixTimeMilliseconds();
 
@@ -14,14 +14,21 @@ namespace Gettr.Api
 			return await GetWrappedAsync<TimeLine.Result>(url);
 		}
 
-		public async Task<ResultWrapper<UserInfo.Result>> UserInfoAsync(string UserId)
+		public async Task<XResp<UserInfo.Result>> UserInfoAsync(string UserId)
 		{
 			var url = $@"/s/uinf/{UserId}";
 
 			return await GetWrappedAsync<UserInfo.Result>(url);
 		}
 
-		public async Task<ResultWrapper<QueryFirebaseHistory.Result>> QueryFirebaseHistoryAsync(int max = 20, string action = "ls", bool ifRefresh = true)
+		public async Task<XResp<bool>> ProfileAsync()
+		{
+			var url = $@"/u/live/profile";
+
+			return await GetWrappedAsync<bool>(url);
+		}
+
+		public async Task<XResp<QueryFirebaseHistory.Result>> QueryFirebaseHistoryAsync(int max = 20, string action = "ls", bool ifRefresh = true)
 		{
 			var url = $@"/u/user/{xappauth.user}/query_firebase_history?max={max}&action={action}";
 
@@ -31,7 +38,7 @@ namespace Gettr.Api
 			return await GetWrappedAsync<QueryFirebaseHistory.Result>(url);
 		}
 
-		public async Task<ResultWrapper<Posts.Result>> PostsAsync(int offset=0, int max = 20, string dir = "fwd", string incl = "posts|stats|userinfo|shared|liked", string fp = "f_uo")
+		public async Task<XResp<Posts.Result>> PostsAsync(int offset=0, int max = 20, string dir = "fwd", string incl = "posts|stats|userinfo|shared|liked", string fp = "f_uo")
 		{
 			var url = $@"/u/user/{xappauth.user}/posts?offset={offset}&max={max}&dir={dir}&incl={incl}&fp={fp}";
 
