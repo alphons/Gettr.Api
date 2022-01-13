@@ -1,8 +1,11 @@
-﻿using System.Diagnostics;
-using System.Net.Http.Headers;
-using System.Net.Http.Json;
-using System.Reflection;
+﻿using System;
+using System.Net.Http;
 using System.Text.Json;
+using System.Reflection;
+using System.Diagnostics;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
+using System.Net.Http.Headers;
 
 using Gettr.Api.Data;
 
@@ -40,7 +43,7 @@ namespace Gettr.Api
 				Timeout = TimeSpan.FromMilliseconds(Timeout)
 			};
 
-			ProductHeaderValue header = new ("Gettr.Api", this.GetType().GetTypeInfo().Assembly.GetName().Version.ToString());
+			var header = new ProductHeaderValue("Gettr.Api", this.GetType().GetTypeInfo().Assembly.GetName().Version.ToString());
 
 			http.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(header));
 

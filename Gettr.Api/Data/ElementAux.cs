@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace Gettr.Api.Data
 {
 	public class ElementAux

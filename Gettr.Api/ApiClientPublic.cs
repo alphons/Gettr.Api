@@ -1,4 +1,6 @@
-﻿
+﻿using System;
+using System.Threading.Tasks;
+
 using Gettr.Api.Data;
 
 namespace Gettr.Api
@@ -12,7 +14,7 @@ namespace Gettr.Api
 			return await GetWrappedAsync<bool>(url);
 		}
 
-		public async Task<XResp<QueryFirebaseHistory.Result>> QueryFirebaseHistoryAsync(int max = 20, string? action = "ls", bool ifRefresh = true)
+		public async Task<XResp<QueryFirebaseHistory.Result>> QueryFirebaseHistoryAsync(int max = 20, string action = "ls", bool ifRefresh = true)
 		{
 			var url = $@"/u/user/{xappauth.user}/query_firebase_history?max={max}";
 
