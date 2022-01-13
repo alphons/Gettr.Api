@@ -6,7 +6,7 @@ namespace Gettr.Api.Data
 	public class ElementAux
 	{
 		public int removed { get; set; }
-		public string cursor { get; set; } // int?
+		public object cursor { get; set; }
 		public object pinf { get; set; }
 		public Dictionary<string, ElementPost> post { get; set; }
 		public Dictionary<string, ElementPost> s_pst { get; set; }

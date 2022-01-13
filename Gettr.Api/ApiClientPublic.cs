@@ -48,34 +48,42 @@ namespace Gettr.Api
 			return await GetWrappedAsync<string>(url);
 		}
 
-		public async Task<XResp<ElementResult>> TimelineAsync(int offset = 0, int max = 20, string dir = "fwd", string incl = "posts|stats|userinfo|shared|liked", DateTimeOffset? StartTs = null, string merge = "shares")
+		public async Task<XResp<ElementResult<ElementList>>> TimelineAsync(int offset = 0, int max = 20, string dir = "fwd", string incl = "posts|stats|userinfo|shared|liked", DateTimeOffset? StartTs = null, string merge = "shares")
 		{
 			var startTs = StartTs == null ? DateTimeOffset.Now.ToUnixTimeMilliseconds() : StartTs.Value.ToUnixTimeMilliseconds();
 
 			var url = $@"/u/user/{xappauth.user}/timeline?offset={offset}&max={max}&dir={dir}&incl={incl}&startTs={startTs}&merge={merge}";
 
-			return await GetWrappedAsync<ElementResult>(url);
+			return await GetWrappedAsync<ElementResult<ElementList>>(url);
 		}
 
-		public async Task<XResp<ElementResult>> UserInfoAsync(string UserId)
+		public async Task<XResp<ElementResult<ElementList>>> UserInfoAsync(string UserId)
 		{
 			var url = $@"/s/uinf/{UserId}";
 
-			return await GetWrappedAsync<ElementResult>(url);
+			return await GetWrappedAsync<ElementResult<ElementList>>(url);
 		}
 
-		public async Task<XResp<ElementResult>> PostsAsync(int offset=0, int max = 20, string dir = "fwd", string incl = "posts|stats|userinfo|shared|liked", string fp = "f_uo")
+		public async Task<XResp<ElementResult<ElementList>>> PostsAsync(int offset=0, int max = 20, string dir = "fwd", string incl = "posts|stats|userinfo|shared|liked", string fp = "f_uo")
 		{
 			var url = $@"/u/user/{xappauth.user}/posts?offset={offset}&max={max}&dir={dir}&incl={incl}&fp={fp}";
 
-			return await GetWrappedAsync<ElementResult>(url);
+			return await GetWrappedAsync<ElementResult<ElementList>>(url);
 		}
 
-		public async Task<XResp<ElementResult>> FollowersAsync(int offset = 0, int max = 20, string incl = "userstats|userinfo|followings|followers")
+		public async Task<XResp<ElementResult<string>>> FollowersAsync(int offset = 0, int max = 20, string incl = "userstats|userinfo|followings|followers")
 		{
 			var url = $@"/u/user/{xappauth.user}/followers/?offset=0&max=20&incl=userstats|userinfo|followings|followers";
 
-			return await GetWrappedAsync<ElementResult>(url);
+			return await GetWrappedAsync<ElementResult<string>>(url);
 		}
+
+		public async Task<XResp<ElementResult<string>>> FollowingAsync(int offset = 0, int max = 20, string incl = "userstats|userinfo|followings|followers")
+		{
+			var url = $@"/u/user/{xappauth.user}/followings/?offset=0&max=20&incl=userstats|userinfo|followings|followers";
+
+			return await GetWrappedAsync<ElementResult<string>>(url);
+		}
+
 	}
 }

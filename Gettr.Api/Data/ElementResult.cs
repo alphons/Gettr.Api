@@ -2,9 +2,9 @@
 
 namespace Gettr.Api.Data
 {
-	public class ElementResult
+	public class ElementResult<T>
 	{
-		public ElementData data { get; set; }
+		public ElementData<T> data { get; set; }
 		public ElementAux aux { get; set; }
 		public string serial { get; set; }
 	}

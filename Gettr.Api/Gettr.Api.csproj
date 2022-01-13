@@ -4,13 +4,8 @@
 		<Version>6.0.0.1</Version>
 	</PropertyGroup>
 
-	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
-		<DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
-	</PropertyGroup>
-
 	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
-		<PackageReference Include="System.Text.Json" Version="6.0.1" />
-	  <PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
+		<PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
 	</ItemGroup>
 
 </Project>

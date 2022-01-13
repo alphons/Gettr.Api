@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gettr.ConsoleApp", "Gettr.ConsoleApp\Gettr.ConsoleApp.csproj", "{52E661AE-9A93-41F2-B59A-9DE98A918CBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gettr.ConsoleApp", "Gettr.ConsoleApp\Gettr.ConsoleApp.csproj", "{52E661AE-9A93-41F2-B59A-9DE98A918CBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gettr.Api", "Gettr.Api\Gettr.Api.csproj", "{66D3C7A8-DF0F-4426-BAFA-4887B9251B87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gettr.Api", "Gettr.Api\Gettr.Api.csproj", "{66D3C7A8-DF0F-4426-BAFA-4887B9251B87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
