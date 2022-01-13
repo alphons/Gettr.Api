@@ -9,7 +9,7 @@ var credentials = config.GetSection("GettrCredentials");
 
 var api = new ApiClient(credentials["user"], credentials["token"], 30000);
 
-var r1 = await api.TimelineAsync();
+//var r1 = await api.TimelineAsync();
 
 //var r2 = await api.UserInfoAsync("alphons");
 
@@ -18,6 +18,8 @@ var r1 = await api.TimelineAsync();
 //var r3b = await api.QueryFirebaseHistoryAsync(action:"ls");
 
 //var r3c = await api.QueryFirebaseHistoryAsync(action: "mc", ifRefresh: true);
+
+//var r3d = await api.QueryFirebaseHistoryAsync(max:1, action:null, ifRefresh:false);
 
 //var r4 = await api.PostsAsync();
 

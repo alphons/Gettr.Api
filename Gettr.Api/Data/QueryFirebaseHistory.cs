@@ -32,7 +32,7 @@ namespace Gettr.Api.Data
 		public class Result
 		{
 			public List<RecordList> recordList { get; set; }
-			public int next { get; set; }
+			public long next { get; set; }
 			public bool isDone { get; set; }
 		}
 
