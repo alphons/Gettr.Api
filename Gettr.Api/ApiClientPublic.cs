@@ -64,7 +64,27 @@ namespace Gettr.Api
 			return await GetWrappedAsync<ElementResult<ElementList>>(url);
 		}
 
-		public async Task<XResp<ElementResult<ElementList>>> PostsAsync(int offset=0, int max = 20, string dir = "fwd", string incl = "posts|stats|userinfo|shared|liked", string fp = "f_uo")
+		public enum FPEnum
+		{
+			/// <summary>
+			/// Posts
+			/// </summary>
+			f_uo,
+			/// <summary>
+			/// Replies
+			/// </summary>
+			f_uc,
+			/// <summary>
+			/// Media
+			/// </summary>
+			f_um,
+			/// <summary>
+			/// Likes
+			/// </summary>
+			f_ul
+		}
+
+		public async Task<XResp<ElementResult<ElementList>>> PostsAsync(int offset=0, int max = 20, string dir = "fwd", string incl = "posts|stats|userinfo|shared|liked", FPEnum fp = FPEnum.f_uo)
 		{
 			var url = $@"/u/user/{xappauth.user}/posts?offset={offset}&max={max}&dir={dir}&incl={incl}&fp={fp}";
 

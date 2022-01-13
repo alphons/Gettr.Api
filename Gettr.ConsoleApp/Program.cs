@@ -23,6 +23,12 @@ var api = new ApiClient(credentials["user"], credentials["token"], 30000);
 
 //var r04 = await api.PostsAsync();
 
+var r04a = await api.PostsAsync(fp: ApiClient.FPEnum.f_uo); // Posts
+var r04b = await api.PostsAsync(fp: ApiClient.FPEnum.f_uc); // Replies
+var r04c = await api.PostsAsync(fp: ApiClient.FPEnum.f_um); // Media
+var r04d = await api.PostsAsync(fp: ApiClient.FPEnum.f_ul); // Likes
+
+
 //var r05 = await api.ProfileAsync();
 
 //var r06 = await api.PublicGlobalsAsync();

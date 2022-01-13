@@ -16,8 +16,9 @@ namespace Gettr.Api.Data
 			public List<Head> heads { get; set; }
 		}
 
-		public int wid { get; set; }
-		public int hgt { get; set; }
+		public bool auto_connect { get; set; }
+		public int? wid { get; set; }
+		public int? hgt { get; set; }
 
 		public Meta meta { get; set; }
 	}
