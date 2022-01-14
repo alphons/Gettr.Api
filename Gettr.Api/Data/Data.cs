@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Gettr.Api.Data
 {
-	public class ElementData<T>
+	public class Data<T>
 	{
 		public long udate { get; set; }
 		public string _t { get; set; }

@@ -48,20 +48,20 @@ namespace Gettr.Api
 			return await GetXRespAsync<string>(url);
 		}
 
-		public async Task<XResp<ElementResult<ElementList>>> TimelineAsync(int offset = 0, int max = 20, string dir = "fwd", string incl = "posts|stats|userinfo|shared|liked", DateTimeOffset? StartTs = null, string merge = "shares")
+		public async Task<XResp<Result<ActionActivity>>> TimelineAsync(int offset = 0, int max = 20, string dir = "fwd", string incl = "posts|stats|userinfo|shared|liked", DateTimeOffset? StartTs = null, string merge = "shares")
 		{
 			var startTs = StartTs == null ? DateTimeOffset.Now.ToUnixTimeMilliseconds() : StartTs.Value.ToUnixTimeMilliseconds();
 
 			var url = $@"/u/user/{xappauth.user}/timeline?offset={offset}&max={max}&dir={dir}&incl={incl}&startTs={startTs}&merge={merge}";
 
-			return await GetXRespAsync<ElementResult<ElementList>>(url);
+			return await GetXRespAsync<Result<ActionActivity>>(url);
 		}
 
-		public async Task<XResp<ElementResult<ElementList>>> UserInfoAsync(string UserId)
+		public async Task<XResp<Result<ActionActivity>>> UserInfoAsync(string UserId)
 		{
 			var url = $@"/s/uinf/{UserId}";
 
-			return await GetXRespAsync<ElementResult<ElementList>>(url);
+			return await GetXRespAsync<Result<ActionActivity>>(url);
 		}
 
 		public enum FPEnum
@@ -84,25 +84,25 @@ namespace Gettr.Api
 			f_ul
 		}
 
-		public async Task<XResp<ElementResult<ElementList>>> PostsAsync(int offset=0, int max = 20, string dir = "fwd", string incl = "posts|stats|userinfo|shared|liked", FPEnum fp = FPEnum.f_uo)
+		public async Task<XResp<Result<ActionActivity>>> PostsAsync(int offset=0, int max = 20, string dir = "fwd", string incl = "posts|stats|userinfo|shared|liked", FPEnum fp = FPEnum.f_uo)
 		{
 			var url = $@"/u/user/{xappauth.user}/posts?offset={offset}&max={max}&dir={dir}&incl={incl}&fp={fp}";
 
-			return await GetXRespAsync<ElementResult<ElementList>>(url);
+			return await GetXRespAsync<Result<ActionActivity>>(url);
 		}
 
-		public async Task<XResp<ElementResult<string>>> FollowersAsync(int offset = 0, int max = 20, string incl = "userstats|userinfo|followings|followers")
+		public async Task<XResp<Result<string>>> FollowersAsync(int offset = 0, int max = 20, string incl = "userstats|userinfo|followings|followers")
 		{
 			var url = $@"/u/user/{xappauth.user}/followers/?offset=0&max=20&incl=userstats|userinfo|followings|followers";
 
-			return await GetXRespAsync<ElementResult<string>>(url);
+			return await GetXRespAsync<Result<string>>(url);
 		}
 
-		public async Task<XResp<ElementResult<string>>> FollowingAsync(int offset = 0, int max = 20, string incl = "userstats|userinfo|followings|followers")
+		public async Task<XResp<Result<string>>> FollowingAsync(int offset = 0, int max = 20, string incl = "userstats|userinfo|followings|followers")
 		{
 			var url = $@"/u/user/{xappauth.user}/followings/?offset=0&max=20&incl=userstats|userinfo|followings|followers";
 
-			return await GetXRespAsync<ElementResult<string>>(url);
+			return await GetXRespAsync<Result<string>>(url);
 		}
 
 	}

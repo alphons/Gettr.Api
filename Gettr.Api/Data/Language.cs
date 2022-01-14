@@ -2,7 +2,7 @@
 
 namespace Gettr.Api.Data
 {
-	public class ElementLanguage
+	public class Language
 	{
 		public string pstid { get; set; }
 		public string uid { get; set; }

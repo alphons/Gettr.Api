@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace Gettr.Api.Data
 {
-	public class ElementPost
+	public class Post
 	{
 		public long udate { get; set; }
-		public ElementAcl acl { get; set; }
+		public Acl acl { get; set; }
 		public string _t { get; set; }
 		public long cdate { get; set; }
 		public string _id { get; set; }
@@ -17,7 +17,7 @@ namespace Gettr.Api.Data
 		public string vid_wid { get; set; }
 		public string vid_hgt { get; set; }
 		public string vis { get; set; }
-		public List<ElementMeta> meta { get; set; }
+		public List<Meta> meta { get; set; }
 		public string vid { get; set; }
 		public string ovid { get; set; }
 		public List<string> htgs { get; set; }
@@ -28,7 +28,7 @@ namespace Gettr.Api.Data
 		public string dsc { get; set; }
 		public string uid { get; set; }
 		public string txt_lang { get; set; }
-		public Dictionary<string, ElementLanguage> translates { get; set; }
+		public Dictionary<string, Language> translates { get; set; }
 		public int lkbpst { get; set; }
 		public int cm { get; set; }
 		public int shbpst { get; set; }

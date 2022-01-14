@@ -2,7 +2,7 @@
 
 namespace Gettr.Api.Data
 {
-	public class ElementActivity
+	public class Activity
 	{
 		public object cdate { get; set; }
 		public string init_id { get; set; }

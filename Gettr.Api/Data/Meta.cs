@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Gettr.Api.Data
 {
-	public class ElementMeta
+	public class Meta
 	{
 		public class Head
 		{
@@ -11,7 +11,7 @@ namespace Gettr.Api.Data
 			public double score { get; set; }
 		}
 
-		public class Meta
+		public class MetaData
 		{
 			public List<Head> heads { get; set; }
 		}
@@ -20,6 +20,6 @@ namespace Gettr.Api.Data
 		public int? wid { get; set; }
 		public int? hgt { get; set; }
 
-		public Meta meta { get; set; }
+		public MetaData meta { get; set; }
 	}
 }

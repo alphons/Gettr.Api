@@ -2,7 +2,7 @@
 
 namespace Gettr.Api.Data
 {
-	public class ElementUserInfo
+	public class UserInfo
 	{
 		public string udate { get; set; }
 		public string _t { get; set; }

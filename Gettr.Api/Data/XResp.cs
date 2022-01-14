@@ -1,5 +1,4 @@
 ﻿
-
 namespace Gettr.Api.Data
 {
     public class XResp<T>
