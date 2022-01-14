@@ -11,7 +11,7 @@ namespace Gettr.Api.Data
 		public long cdate { get; set; }
 		public string _id { get; set; }
 		public string txt { get; set; }
-		public string[] imgs { get; set; }
+		public List<string> imgs { get; set; } // ??? correct?
 		public string main { get; set; }
 		public string vid_dur { get; set; }
 		public string vid_wid { get; set; }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Drawing;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 using Gettr.Api.Data;
 
@@ -103,6 +105,46 @@ namespace Gettr.Api
 			var url = $@"/u/user/{xappauth.user}/followings/?offset=0&max=20&incl=userstats|userinfo|followings|followers";
 
 			return await GetXRespAsync<Result<string>>(url);
+		}
+
+		// {"data":{"acl":{"_t":"acl"},"_t":"post","txt":"Test👍","udate":1642160207331,"cdate":1642160207331,"uid":"alphons"
+		// ,"imgs":["group4/origin/2022/01/14/11/d3d37865-85d2-e420-1efe-e1a1cbff3400/0a5d1cd1c5af4b45bd5c02d011b36b13.png"],"vid_wid":800,"vid_hgt":600,"meta":[{}]},"aux":null,"serial":"post"}
+
+		public async Task<XResp<PostResult>> DoPostAsync(string text, string ImagePath = null)
+		{
+			var url = $@"/u/post";
+
+			var request = new PostRequest()
+			{
+				data = new PostRequest.Data()
+				{
+					acl = new PostRequest.Acl() { _t = "acl" },
+					_t = "post",
+					txt = text,
+					udate = DateTimeOffset.Now.ToUnixTimeMilliseconds(),
+					cdate = DateTimeOffset.Now.ToUnixTimeMilliseconds(),
+					uid = this.xappauth.user,
+					meta = new List<PostRequest.Meta>()
+				},
+				aux = null,
+				serial = "post"
+			};
+
+			if (ImagePath != null)
+			{
+				var response = await UploadImageAsync(ImagePath);
+				request.data.imgs = new List<string>() { response.result.ori };
+
+#pragma warning disable CA1416 // Validate platform compatibility
+				using (var bmp = Image.FromFile(ImagePath))
+				{
+					request.data.vid_wid = bmp.Width;
+					request.data.vid_hgt = bmp.Height;
+				}
+#pragma warning restore CA1416 // Validate platform compatibility
+			}
+
+			return await PostMultipartFormDataAsync<PostResult>(url, request);
 		}
 
 	}

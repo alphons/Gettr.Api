@@ -1,4 +1,5 @@
 ﻿using Gettr.Api;
+using System.Diagnostics;
 
 var config = new ConfigurationBuilder()
     .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
@@ -39,4 +40,8 @@ var api = new ApiClient(credentials["user"], credentials["token"], 30000);
 
 //var r09 = await api.FollowersAsync();
 
-var r10 = await api.FollowingAsync();
+//var r10 = await api.FollowingAsync();
+
+var r11 = await api.DoPostAsync("Test👍", @"d:\temp\ups.png");
+
+var aaa = r11.rc;
