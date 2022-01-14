@@ -43,16 +43,16 @@ namespace Gettr.Api
 				Timeout = TimeSpan.FromMilliseconds(Timeout)
 			};
 
-			var header = new ProductHeaderValue("Gettr.Api", this.GetType().GetTypeInfo().Assembly.GetName().Version.ToString());
+			//var header = new ProductHeaderValue("Gettr.Api", this.GetType().GetTypeInfo().Assembly.GetName().Version.ToString());
 
-			http.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(header));
+			//http.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(header));
 
-			//http.DefaultRequestHeaders.UserAgent.TryParseAdd($"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36");
+			http.DefaultRequestHeaders.UserAgent.TryParseAdd($"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36");
 
 			http.DefaultRequestHeaders.Add(XAppAuth.HeaderName, JsonSerializer.Serialize(xappauth));
 		}
 
-		private async Task<XResp<T>> GetWrappedAsync<T>(string url)
+		private async Task<XResp<T>> GetXRespAsync<T>(string url)
 		{
 			try
 			{

@@ -39,4 +39,4 @@ var api = new ApiClient(credentials["user"], credentials["token"], 30000);
 
 //var r09 = await api.FollowersAsync();
 
-//var r10 = await api.FollowingAsync();
+var r10 = await api.FollowingAsync();
